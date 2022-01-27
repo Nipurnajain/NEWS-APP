@@ -10,7 +10,7 @@ export class NavBar extends Component {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
-              <img src="apple-touch-icon.png" alt="" width="30" height="24" />
+              <img src="img/apple-touch-icon.png" alt="" width="30" height="24" />
             </a>
             <a className="navbar-brand" href="#">
               <strong>Bulletin</strong>
