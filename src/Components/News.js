@@ -16,7 +16,7 @@ export class News extends Component
   }
   //runs after render runs
   async componentDidMount() { 
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=2d94c7aeab1d410d9f8d23336a384150&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?&country=${this.props.country}&category=${this.props.category}&apiKey=2d94c7aeab1d410d9f8d23336a384150&page=1&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json(); // converts fetched data to json format
@@ -30,7 +30,7 @@ export class News extends Component
 
   handlePrevClick = async () => {
     console.log("prev");
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=2d94c7aeab1d410d9f8d23336a384150&page=${
+    let url = `https://newsapi.org/v2/top-headlines?&country=${this.props.country}&category=${this.props.category}&apiKey=2d94c7aeab1d410d9f8d23336a384150&page=${
       this.state.page - 1
     }&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
@@ -50,7 +50,7 @@ export class News extends Component
     
      
       console.log("next");
-      let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=2d94c7aeab1d410d9f8d23336a384150&page=${
+      let url = `https://newsapi.org/v2/top-headlines?&country=${this.props.country}&category=${this.props.category}&apiKey=2d94c7aeab1d410d9f8d23336a384150&page=${
         this.state.page + 1
       }&pageSize=${this.props.pageSize}`;
       this.setState({ loading: true });
@@ -86,6 +86,9 @@ export class News extends Component
                     }
                     imageUrl={element.urlToImage}
                     newsUrl={element.url}
+                    author={element.author}
+                    date={element.publishedAt}
+                    source={element.source}
                   />
                 </div>
               );
